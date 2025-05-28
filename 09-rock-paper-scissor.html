@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="09-rock-paper-scissor.css">
+</head>
+<body>
+    <p>Rock Paper Scissors</p>
+    <button onclick="play('rock');">Rock</button>
+    <button onclick="play('paper');">Paper</button>
+    <button onclick="play('scissors');">Scissors</button>
+    <div class="result"></div>
+    <div class="choices"></div>
+    <div class="scores">Win: <span id="countWin"> </span>, Loss: <span id="countLoss"> </span>, Ties: <span id="countTies"> </span></div>
+    <button onclick="resetScores();">Reset Scores</button>
+    <script>
+        let playerChoice = '';
+        let countWin = 0;
+        let countLoss = 0;
+        let countTies = 0;
+        let result = '';
+
+        function pickComputerMove(){
+            const randomNumber = Math.random(); // 生成一个0~1之间的随机数
+            let computerChoice = '';
+            if (randomNumber >= 0 && randomNumber < 1 / 3){
+                computerChoice = 'rock';
+            }else if(randomNumber >= 2/3 && randomNumber < 1){
+                computerChoice = 'paper';
+            }else if(randomNumber >= 1/3 && randomNumber < 2/3){
+                computerChoice = 'scissors';
+            }
+            return computerChoice;
+        }
+        
+        function play(playerChoice){
+            const computerChoice = pickComputerMove();
+            if (playerChoice === computerChoice){
+                result = 'It\'s a tie!';
+                countTies++;
+            } else if (
+                (playerChoice === 'paper' && computerChoice === 'rock') ||
+                (playerChoice === 'rock' && computerChoice === 'scissors') ||
+                (playerChoice === 'scissors' && computerChoice === 'paper')
+                ){
+                result = 'You win!';
+                countWin++;
+            } else{
+                result = 'You lose!';
+                countLoss++;
+            }
+            document.querySelector('.result').innerHTML = result;
+            document.querySelector('.choices').innerHTML = `You chose: ${playerChoice}, Computer chose: ${computerChoice}`;
+            document.getElementById('countWin').innerHTML = countWin;
+            document.getElementById('countLoss').innerHTML = countLoss;
+            document.getElementById('countTies').innerHTML = countTies;
+        }
+
+        function resetScores(){
+            countWin = 0;
+            countLoss = 0;
+            countTies = 0;
+            document.querySelector('.result').innerHTML = '';
+            document.querySelector('.choices').innerHTML = '';
+            document.getElementById('countWin').innerHTML = countWin;
+            document.getElementById('countLoss').innerHTML = countLoss;
+            document.getElementById('countTies').innerHTML = countTies;
+        }
+
+    </script>
+</body>
+</html>
