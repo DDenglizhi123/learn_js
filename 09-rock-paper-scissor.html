@@ -16,11 +16,7 @@
     <div class="scores">Win: <span id="countWin"> </span>, Loss: <span id="countLoss"> </span>, Ties: <span id="countTies"> </span></div>
     <button onclick="resetScores();">Reset Scores</button>
     <script>
-        let playerChoice = '';
-        let countWin = 0;
-        let countLoss = 0;
-        let countTies = 0;
-        let result = '';
+        const score = JSON.parse(localStorage.getItem('score'));
 
         function pickComputerMove(){
             const randomNumber = Math.random(); // 生成一个0~1之间的随机数
@@ -38,35 +34,36 @@
         function play(playerChoice){
             const computerChoice = pickComputerMove();
             if (playerChoice === computerChoice){
-                result = 'It\'s a tie!';
-                countTies++;
+                score.ties++;
             } else if (
                 (playerChoice === 'paper' && computerChoice === 'rock') ||
                 (playerChoice === 'rock' && computerChoice === 'scissors') ||
                 (playerChoice === 'scissors' && computerChoice === 'paper')
                 ){
-                result = 'You win!';
-                countWin++;
+                score.win++;
             } else{
                 result = 'You lose!';
-                countLoss++;
+                score.loss++;
             }
+            // setItem 方法将数据存储到浏览器的本地存储中
+            // 第一个参数是键名，第二个参数是要存储的值, 只支持字符串
+            localStorage.setItem('score', JSON.stringify(score));
             document.querySelector('.result').innerHTML = result;
             document.querySelector('.choices').innerHTML = `You chose: ${playerChoice}, Computer chose: ${computerChoice}`;
-            document.getElementById('countWin').innerHTML = countWin;
-            document.getElementById('countLoss').innerHTML = countLoss;
-            document.getElementById('countTies').innerHTML = countTies;
+            document.getElementById('countWin').innerHTML = score.win;
+            document.getElementById('countLoss').innerHTML = score.loss;
+            document.getElementById('countTies').innerHTML = score.ties;
         }
 
         function resetScores(){
-            countWin = 0;
-            countLoss = 0;
-            countTies = 0;
+            score.win = 0;
+            score.loss = 0;
+            score.ties = 0;
             document.querySelector('.result').innerHTML = '';
             document.querySelector('.choices').innerHTML = '';
-            document.getElementById('countWin').innerHTML = countWin;
-            document.getElementById('countLoss').innerHTML = countLoss;
-            document.getElementById('countTies').innerHTML = countTies;
+            document.getElementById('countWin').innerHTML = score.win;
+            document.getElementById('countLoss').innerHTML = score.loss;
+            document.getElementById('countTies').innerHTML = score.ties;
         }
 
     </script>
