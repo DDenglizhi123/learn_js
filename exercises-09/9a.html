@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>9a</button>
+    <button class="js-changeText">9b</button>
+
+    <button class="js-head-btn" onclick="choose('head');">heads</button>
+    <button class="js-tail-btn" onclick="choose('tail');">tails</button>
+    <p class="js-result"> </p>
+    <script>
+        console.log(document.querySelector("button"));
+        document.querySelector(".js-changeText").innerHTML = "9b, done!";
+        
+        const headButton = document.querySelector(".js-head-btn");
+        const tailButton = document.querySelector(".js-tail-btn");
+        const content = document.querySelector('.js-result');
+        
+        function choose(choice){
+            console.log(choice);
+            if (choice === "head"){
+                content.innerText = `You chose: ${choice}.`;
+            }else{
+                content.innerText = `You chose: ${choice}.`;
+            };
+        };
+    </script>
+</body>
+</html>
