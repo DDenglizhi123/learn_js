@@ -1,0 +1,32 @@
+# Ignore Python cache
+__pycache__/
+*.pyc
+
+# Ignore VSCode settings
+.vscode/
+
+# Ignore macOS files
+.DS_Store
+
+# Ignore system logs or temp files
+*.log
+*.tmp
+
+# Ignore virtual environment
+venv/
+
+# Ignore compiled binaries
+*.o
+*.so
+*.exe
+
+# Ignore environment variables
+.env
+
+# Ignore node_modules for JavaScript
+node_modules/
+
+# Ignore dist/build folders
+dist/
+build/
+ven/
