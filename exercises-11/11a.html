@@ -8,26 +8,147 @@
 <body>
     <script>
         //11a
-        const nums = [10, 20, 30];
+        //const nums = [10, 20, 30];
         //nums[2] = "99";
         //console.log(nums);
         //getLastValue(nums);
-        swappValue(nums);
+        //swappValue(nums);
 
+        /*
         function getLastValue(arryObj){
             const lastValue = arryObj[arryObj.length -1];
             console.log(lastValue);
         }
-
+        */
+        /*
         function swappValue(arryObj){
-            console.log(arryObj);
-            const firstValue = arryObj.splice();
-            console.log(firstValue);
-            console.log(arryObj);
-            // arryObj.push(last2first);
-            // console.log(arryObj);
+            const firstValeu = arryObj[0];
+            const lastValue = arryObj[arryObj.length - 1];
+            arryObj[0] = lastValue;
+            arryObj[arryObj.length -1] = firstValeu;
+
+            console.log(arryObj)
+        }
+        */
+        /*
+        let resultArry = [];
+        let originalArry = [];
+        countUp(originalArry, resultArry);
+
+        function countUp(arryObj1,arryObj2){
+            for (let i = 0; i < 11; i++){
+                arryObj1.push(i);
+                arryObj2.push(arryObj1[i]+2);
+            }
+            console.log(resultArry)
+        }
+        */
+
+        // 11e
+        /*
+        const countDown = [];
+        for (let i = 5; i >= 0 ; i--){
+            countDown.push(i);
+        }
+        console.log(countDown);
+        */
+        // 11f
+        /*
+        const resultArry = [];
+        const originalArry = [];
+        const countDown = [];
+        let index = 0;
+        
+        while (index < 11){
+            originalArry.push(index);
+            //console.log(originalArry);
+            resultArry.push(originalArry[index] + 2);
+            index ++;
+        }
+        index = 0;
+        console.log(resultArry);
+
+        while (index < 6){
+            countDown.unshift(index);
+            index ++;
+        }
+        console.log(countDown);
+        */
+
+        // 11g
+        /*
+        const numArry = [12, 4, 39];
+        let resultArry = [];
+        for (let i = 0; i < numArry.length; i++){
+            resultArry.push(numArry[i]+1);
+        }
+        console.log(resultArry);
+        */
+
+        // 11h
+        /*
+        const addOne = (numArry) => {
+            let resultArry = [];
+            for (let i = 0; i < numArry.length; i++){
+               let num = numArry[i] + 1;
+               resultArry.push(num);
+            }
+            return resultArry;
+        }
+        result = addOne([-2,-1,0,99])
+        console.log(result)
+        */
+
+        //11i
+        /*
+        const addNum = (numArry, num) => {
+            let resultArry = [];
+            for (let i = 0; i < numArry.length; i++){
+                let result = numArry[i] + num;
+                resultArry.push(result);
+            }
+            return resultArry;
+        }
+        console.log(addNum([1,2,3],2));
+        console.log(addNum([1,2,3],3));
+        console.log(addNum([-2,-1,0,99],2));
+        */
+
+        //11j
+        /*
+        const addArry = (arry1, arry2) => {
+            let addedArry = [];
+            for (let i = 0; i < arry1.length; i++){
+                result1 = arry1[i];
+                result2 = arry2[i];
+                addedArry.push(result1 + result2);
+            }
+            return addedArry;
+        }
+        console.log(addArry([1,1,2],[1,1,3]));
+        console.log(addArry([1,2,3],[4,5,6]));
+        */
+
+        // 11k
+        const countPositive = (numArry) => {
+            let count = 0;
+            for (let i = 0; i < numArry.length; i++){
+                if (numArry[i] > 0) {
+                    count ++;
+                }
+            }
+            return count;
         }
 
+        console.log(countPositive([1,-3,5]))
+        console.log(countPositive([-2,3,-5,7,10]))
+
+        // 11I
+        const minMax= (numArry) => {
+            for (let i = 0; i < numArry.length; i++){
+                
+            }
+        }
     </script>
 </body>
 </html>
