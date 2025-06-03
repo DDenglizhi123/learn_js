@@ -130,6 +130,7 @@
         */
 
         // 11k
+        /*
         const countPositive = (numArry) => {
             let count = 0;
             for (let i = 0; i < numArry.length; i++){
@@ -142,13 +143,38 @@
 
         console.log(countPositive([1,-3,5]))
         console.log(countPositive([-2,3,-5,7,10]))
+        */
 
-        // 11I
+        // 11l
+        /*
         const minMax= (numArry) => {
-            for (let i = 0; i < numArry.length; i++){
-                
+
+            if (numArry.length === 0) {return {min:null, max:null};}
+            
+
+            let min = numArry[0];
+            let max = numArry[0];
+
+            if (numArry.length < 2) {return {min, max};}
+
+            for (let i = 1; i < numArry.length; i++){
+                if (min > numArry[i]) min = numArry[i];
+                if (max < numArry[i]) max = numArry[i];
+
             }
+            return {min, max};
         }
+
+        console.log(minMax([1, -3, 5]));
+        console.log(minMax([-2, 3, -5, 7, 10]));
+        console.log(minMax([]));
+        console.log(minMax([3]));
+        */
+
+        // 11n
+        let items = {'apple':1};
+        console.log(items['apple']);
+
     </script>
 </body>
 </html>
