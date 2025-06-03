@@ -172,8 +172,37 @@
         */
 
         // 11n
-        let items = {'apple':1};
-        console.log(items['apple']);
+        
+// 定义一个函数 countWords，接收一个字符串数组 words 作为参数
+const countWords = (words) => {
+
+    // 创建一个空对象，用来保存每个单词出现的次数
+    const result = {}; 
+
+    // 用 for 循环遍历整个数组，每次处理一个单词
+    for (let i = 0; i < words.length; i++) {
+        
+        // 获取当前数组元素，赋值给变量 word
+        const word = words[i];
+
+        // 如果 result 对象中还没有这个 word（即第一次出现）
+        if (!result[word]) {
+            // 就把它加入 result，并将计数设为 1
+            result[word] = 1;
+        } else {
+            // 否则说明这个单词已经出现过了，把计数加 1
+            result[word]++;
+        }
+    }
+
+    // 循环结束后，返回结果对象 result，其中包含每个单词出现的次数
+    return result;
+}
+
+// 调用函数进行测试，并输出结果
+console.log(countWords(['apple', 'grape', 'apple', 'apple', 'grape']));
+
+// 预期输出：{ apple: 3, grape: 2 }
 
     </script>
 </body>

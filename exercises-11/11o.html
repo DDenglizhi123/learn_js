@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Excercises 11</title>
+</head>
+<body>
+    <script>
+        const words = ['hello','world','search','good'];
+        let index = -1;
+        for (let i = 0; i < words.length; i++){
+            if(words[i] === "search"){
+                index = i;
+            }
+        }
+        console.log(index);
+
+        const notFound = ["not", "found"];
+        index = -1;
+        for (let i = 0; i < notFound.length; i++){
+            if(notFound[i] === 'search'){
+                index = 1;
+            }
+        }
+        console.log(index);
+
+    </script>
+</body>
+</html>
