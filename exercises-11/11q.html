@@ -7,12 +7,22 @@
 </head>
 <body>
     <script>
-        let index = -1;
+        
         function findIndex(myArray,word){
+            let index = -1;
             for (let i = 0; i < myArray.length; i++){
-                
+                if(myArray[i] === word){
+                    index = i;
+                    console.log(index);
+                    break;
+                }
             }
+            if( index === -1){console.log(index);}
+            
         }
+
+        findIndex(['green','red', 'blue', 'red'], 'red');
+        findIndex(['green','red', 'blue', 'red'], 'yellow');
 
 
     </script>
