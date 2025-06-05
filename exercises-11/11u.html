@@ -8,28 +8,26 @@
 <body>
     <script>
         const foods = ['egg','apple', 'egg', 'egg', 'ham'];
-
-        const removeEgg = (foods) =>{
-            let result = [];
-            let reversedFoods =[]
+        function removeEggs(neArry){
+            let sliced =foods.slice(0,foods.length)
+            sliced.reverse();
             let countEgg = 0;
-            for (let i = foods.length; i >= 0; i--){
-                reversedFoods.push(foods.slice(foods.length[i]));
-            }
-            for (let i = 0; i < foods.length; i++){
-                if(foods[i] === "egg"){
+            let result = [];
+            for (let i =0; i < sliced.length; i++){
+                if(sliced[i] === "egg"){
                     countEgg++;
                     if(countEgg <= 2){
                         continue;
                     }
                 }
-                result.push(reversedFoods[i]);
+                result.push(sliced[i]);
             }
-            
             result.reverse()
             console.log(result);
         }
-        removeEgg(['egg','apple', 'egg', 'egg', 'ham'])
+        console.log(foods)
+        console.log(removeEggs(foods));
+
     </script>
 </body>
 </html>
