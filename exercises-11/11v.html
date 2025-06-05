@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11v</title>
+</head>
+<body>
+    <script>
+        function FizzBuzz (){
+            const myArray = [];
+            for ( let i = 1; i < 21; i++){
+                if ( i % 3 === 0 && i % 5 === 0){
+                    myArray[i-1]= 'FizzBuzz';
+                }else if (i % 3 === 0){
+                    myArray[i-1]= 'Fizz';
+                }else if (i % 5 === 0){
+                    myArray[i-1]= 'Buzz';
+                }else{
+                    myArray[i-1]= i;
+                }
+            }
+            console.log(myArray);
+        }
+        FizzBuzz()
+    </script>
+</body>
+</html>
