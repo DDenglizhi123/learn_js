@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boolean</title>
+</head>
+<body>
+    <script>
+        console.log( 5 == '5.00'); // true, == 把等号两边的值转换成同一类型进行比较
+
+        console.log( 3 > 5 - 5);
+
+       const result = true ? 'truethy' : 'falsy';
+       console.log(result);
+
+       false && console.log('hello'); //如果&&前面是false, &&后面的不与执行;
+       true && console.log('hello');
+       const message1 = false && 'hello';
+       console.log(message1);
+       const message2 = true && 'hello';
+       console.log(message2);
+
+       const currency1 = 'EUR' || 'USD'; // 如果||前面为真则执行||前面的代码并结束
+       console.log(currency1); // EUR
+       const currency2 = undefined || 'USD'; // 如果||前面为真则执行||前面的代码并结束
+       console.log(currency2); // USD
+    </script>
+
+</body>
+</html>

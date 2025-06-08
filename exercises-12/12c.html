@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12a</title>
+</head>
+<body>
+    <button class="js-start-btn" onclick="switchButton();">Start</button>
+    <script>
+        function switchButton(){
+            setTimeout(function(){
+                const startButton = document.querySelector('.js-start-btn');
+                startButton.innerText = 'Finished!';
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
