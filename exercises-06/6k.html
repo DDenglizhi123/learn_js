@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car quantity</title>
+</head>
+<body>
+    <button onclick="
+        console.log(`Car Quantity: ${carQuantity}`);
+    ">Show Quantity</button>
+    <button onclick="
+        carQuantity++;
+        console.log(`Car Quantity: ${carQuantity}`);
+        calculation += '1';
+        console.log(calculation);
+    ">Add to Cart</button>
+    <button onclick="
+    ">1</button>
+    <button onclick="
+        carQuantity += 2;
+        console.log(`Car Quantity: ${carQuantity}`);
+        calculation += '2';
+        console.log(calculation);
+    ">+2</button>
+    <button onclick="
+        carQuantity += 3;
+        console.log(`Car Quantity: ${carQuantity}`);
+        calculation += '3';
+        console.log(calculation);
+    ">+3</button>
+    <button onclick="
+        carQuantity += 4;
+        console.log(`Car Quantity: ${carQuantity}`);
+    ">+4</button>
+    <button onclick="
+        carQuantity += 5;
+        console.log(`Car Quantity: ${carQuantity}`);
+    ">+5</button>
+    <button onclick="
+        carQuantity --;
+        console.log(`Car Quantity: ${carQuantity}`);
+    ">Remove from cart</button>
+    <button onclick="
+        carQuantity -= 2;
+        console.log(`Car Quantity: ${carQuantity}`);
+    ">-2</button>
+    <button onclick="
+        carQuantity -= 3;
+        console.log(`Car Quantity: ${carQuantity}`);
+    ">-3</button>
+    <button onclick="
+        carQuantity *= 0;
+        console.log('Car was reset.')
+        console.log(`Car Quantity: ${carQuantity}`);
+    ">Reset Cart</button>
+
+    <script>
+        let carQuantity = 0;
+    </script>
+</body>
+</html>
