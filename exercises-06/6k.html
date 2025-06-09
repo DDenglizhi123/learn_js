@@ -10,12 +10,24 @@
         console.log(`Car Quantity: ${carQuantity}`);
     ">Show Quantity</button>
     <button onclick="
-        carQuantity++;
-        console.log(`Car Quantity: ${carQuantity}`);
-        calculation += '1';
-        console.log(calculation);
+        if (carQuantity < 10 && carQuantity >= 0){
+            carQuantity++;
+            console.log(`Car Quantity: ${carQuantity}`);
+            calculation += '1';
+            console.log(calculation);
+        }else if (carQuantity === 10 ){
+            alert('Your cart is full.');
+        }
     ">Add to Cart</button>
     <button onclick="
+        if (carQuantity <= 10){
+            carQuantity += 1;
+            console.log(`Car Quantity: ${carQuantity}`);
+            calculation += '1';
+            console.log(calculation);
+        }else{
+            alert('Your cart is full.');
+        }
     ">1</button>
     <button onclick="
         carQuantity += 2;
@@ -38,8 +50,14 @@
         console.log(`Car Quantity: ${carQuantity}`);
     ">+5</button>
     <button onclick="
-        carQuantity --;
-        console.log(`Car Quantity: ${carQuantity}`);
+        if (carQuantity <= 10 && carQuantity >0){
+            carQuantity --;
+            console.log(`Car Quantity: ${carQuantity}`);
+            calculation -= '1';
+            console.log(calculation);
+        }else if (carQuantity === 0){
+            alert('Your cart is empty');
+        }
     ">Remove from cart</button>
     <button onclick="
         carQuantity -= 2;
@@ -57,6 +75,7 @@
 
     <script>
         let carQuantity = 0;
+        let calculation = '';
     </script>
 </body>
 </html>
