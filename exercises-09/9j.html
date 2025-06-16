@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <p class="js-result"></p>
+    <p>
+      <button onclick="
+        updateCartQuantity('1');
+      ">1</button>
+
+      <button onclick="
+        updateCartQuantity('2');
+      ">2</button>
+
+      <button onclick="
+        updateCartQuantity('3');
+      ">3</button>
+
+      <button onclick="
+        updateCartQuantity('+');
+      ">+</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCartQuantity('4');
+      ">4</button>
+
+      <button onclick="
+        updateCartQuantity('5');
+      ">5</button>
+
+      <button onclick="
+        updateCartQuantity('6');
+      ">6</button>
+
+      <button onclick="
+        updateCartQuantity('-');
+      ">-</button>
+    </p>
+
+    <p>
+      <button onclick="
+        updateCartQuantity('7');
+      ">7</button>
+
+      <button onclick="
+        updateCartQuantity('8');
+      ">8</button>
+
+      <button onclick="
+        updateCartQuantity('9');
+      ">9</button>
+
+      <button onclick="
+        updateCartQuantity('*');
+      ">*</button>
+    </p>
+
+    <p>
+      <button onclick="
+    updateCartQuantity('0');
+      ">0</button>
+
+      <button onclick="
+        updateCartQuantity('.');
+      ">.</button>
+
+      <button onclick="
+        // Note: eval() takes a string and runs it as code.
+        // Avoid using eval() in real world projects since
+        // it can potentially be given harmful code to run.
+        // Only use eval() for learning purposes.
+        calculation = eval(calculation);
+        console.log(calculation);
+        cleared = true;
+        result.innerHTML = `${calculation}`
+      ">=</button>
+
+      <button onclick="
+        updateCartQuantity('/');
+      ">/</button>
+    </p>
+
+    <p>
+      <button onclick="
+        localStorage.removeItem('calculation');
+        calculation = '';
+        result.innerHTML = `${calculation}`
+      ">Clear</button>
+    </p>
+
+
+    <script>
+        let cleared = false;
+        let calculation = localStorage.getItem('calculation' || '0');
+        let result = document.querySelector('.js-result');
+        result.innerHTML = `${calculation}`;
+        function updateCartQuantity(value){
+            if (cleared === true){
+                calculation = ''
+            }else{
+                calculation += value;
+            }
+            result.innerHTML = `${calculation}`;
+            localStorage.setItem('calculation',calculation);
+        }
+    </script>
+  </body>
+</html>
