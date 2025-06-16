@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head></head>
+  <body>
+    <button onclick="guess('heads')">heads</button>
+    <button onclick="guess('tails')">tails</button>
+    <script>
+        let score = JSON.parse(localStorage.getItem('score')) || {
+        wins: 0,
+        losses: 0
+        };
+        function guess(guess){
+            const randomNumber = Math.random();
+            if (randomNumber < 0.5){
+                if(guess === 'heads'){
+                    score.wins += 1;
+                    console.log(`You Win! Score: Wins: ${score.wins}, Losses: ${score.losses}.`);
+                }else if(guess == 'tails'){
+                    score.losses +=1;
+                    console.log(`You Lose! Score: Wins: ${score.wins}, Losses: ${score.losses}.`);
+                }
+            }else if(randomNumber >= 0.5){
+                if(guess === 'tails'){
+                    score.wins += 1;
+                    console.log(`You Win! Score: Wins: ${score.wins}, Losses: ${score.losses}.`);
+                }else if(guess == 'heads'){
+                    score.losses +=1;
+                    console.log(`You Lose! Score: Wins: ${score.wins}, Losses: ${score.losses}.`);
+                }
+            }
+            localStorage.setItem('score', JSON.stringify(score))
+        }
+    </script>
+  </body>
+</html>
