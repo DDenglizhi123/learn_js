@@ -3,31 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>10h</title>
+    <style>
+        .error-text{
+            color: red;
+        }
+    </style>
 </head>
 <body>
-    <input type="text" placeholder="Enter cost" class="js-cost-input" onkeydown="handleCostKeydown(event)">
-    <button class="js-calculate" onclick="calculate()">Check Number</button>
-    <p class="js-total-cost"></p>
-
+    <p>YouTube Subscribe Button</p>
+    <button onclick="subscribe()" class="js-subscribe-button subscribe-button">Subscribe</button>
+    <p>Amazon Shipping Calculator</p>
+    <input type="text" class="js-cost-input cost-input" onkeydown="enterToCalculate(event)" placeholder="Cost of roder">
+    <button class="js-calculate-btn calculate-btn" onclick="calculate()">Calculate</button>
+    <p class="js-result-text"></p>
     <script>
-        function handleCostKeydown(event){
-            if(event.key === "Enter"){
-                calculate();
+
+        function subscribe () {
+            const buttonElement = document.querySelector('.js-subscribe-button');
+    
+            if (buttonElement.innerHTML === 'Subscribe'){
+                buttonElement.innerHTML = 'Subscribed';
+                buttonElement.classList.add('is-subscribed');
+            } else{
+                buttonElement.innerHTML = 'Subscribe';
+                buttonElement.classList.remove('is-subscribed');
             }
         }
 
-        function calculate(){
+        function enterToCalculate(event){
             const inputElem = document.querySelector('.js-cost-input');
+
+            const displayMessage = document.querySelector('.js-result-text');
+
             let cost = Number(inputElem.value);
 
-            if(cost <40){
-                cost += 10;
+            if (event.key === 'Enter'){
+                if (cost < 0){
+                    displayMessage.innerHTML = `Error: cost cannot be less than $0`;
+                    displayMessage.classList.add('error-text');
+                }else{
+                    calculate();
+                }
             }
-            document.querySelector('.js-total-cost').innerHTML = `$${cost}`;
-            document.querySelector('.js-cost-input').value = "";
+        }
+
+        function calculate (){
+            const inputElem = document.querySelector('.js-cost-input');
+
+            const displayMessage = document.querySelector('.js-result-text');
+
+            let cost = Number(inputElem.value);
+
+            if (cost < 0){
+                displayMessage.innerHTML = `Error: cost cannot be less than $0`;
+                displayMessage.classList.add('error-text');
+            }else if(cost < 40){
+                cost +=10;
+                displayMessage.innerHTML = `$${cost}`;
+            }else{
+                displayMessage.innerHTML = `$${cost}`;
+            }
+
         }
     </script>
 </body>
-
 </html>
