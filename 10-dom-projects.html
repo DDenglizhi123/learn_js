@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Projects</title>
+    <link rel="stylesheet" href="styles/10-dom-projects.css">
+</head>
+<body>
+    <p>YouTube Subscribe Button</p>
+    <button onclick="subscribe()" class="js-subscribe-button subscribe-button">Subscribe</button>
+    <p>Amazon Shipping Calculator</p>
+    <input type="text" class="js-cost-input cost-input" onkeydown="enterToCalculate(event)" placeholder="Cost of roder">
+    <button class="js-calculate-btn calculate-btn" onclick="calculate()">Calculate</button>
+    <p class="js-result-text"></p>
+    <script>
+        function subscribe () {
+            const buttonElement = document.querySelector('.js-subscribe-button');
+    
+            if (buttonElement.innerHTML === 'Subscribe'){
+                buttonElement.innerHTML = 'Subscribed';
+                buttonElement.classList.add('is-subscribed');
+            } else{
+                buttonElement.innerHTML = 'Subscribe';
+                buttonElement.classList.remove('is-subscribed');
+            }
+        }
+
+        function enterToCalculate(event){
+            if (event.key === 'Enter'){
+                calculate();
+            }
+        }
+
+        function calculate (){
+            let inputElem = document.querySelector('.js-cost-input');
+            let result = document.querySelector('.js-result-text')
+            
+            let cost = Number(inputElem.value);
+            console.log(cost);
+            if (cost < 40){
+                cost +=10;
+            }
+            result.innerHTML = `$${cost}`;
+        }
+
+    </script>
+</body>
+</html>

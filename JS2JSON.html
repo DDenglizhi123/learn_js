@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //用花括号 {} 创建一个对象
+        // 对象是 键值对 的集合，键 是字符串，值 可以是任意类型
+        // 对象可以包含属性和方法
+        const product = {
+            // 值 可以是字符串、数字、布尔值、数组、函数等
+            name: 'Laptop',
+            price: 999.99,
+            inStock: true,
+            features: ['16GB RAM', '512GB SSD', 'Intel i7 Processor'],
+            fun: function() {
+                console.log('This is a product function');
+            }
+        };
+        // 通过 属性 访问值
+        console.log(product.name); // 'Laptop'
+        console.log(product['price']); // 999.99
+        console.log(product.inStock); // true
+        console.log(product.features[0]); // '16GB RAM'
+        
+        document.write('<h1>' + product.name + '</h1>');
+        document.write('<p>Price: $' + product.price + '</p>');
+        document.write('<p>In Stock: ' + (product.inStock ? 'Yes' : 'No') + '</p>');
+        document.write('<h2>Features:</h2>');
+        document.write('<ul>');
+            // 使用 forEach 遍历数组
+        product.features.forEach(function(feature) {
+            document.write('<li>' + feature + '</li>');
+        });
+        // 或者使用 for 循环
+        // for (let i = 0; i < product.features.length; i++) {
+        //     document.write('<li>' + product.features[i] + '</li>');
+        // }
+        document.write('</ul>');
+
+        // 使用 JSON.stringify 将对象转换为 JSON 字符串, 并打印到控制台
+        // JSON.stringify( 对象名称, 替换函数, 缩进空格数 )
+        // 第二个参数可以是一个函数，用于替换或过滤对象的属性
+        // 第三个参数是缩进空格数，用于格式化输出
+        // 例如：JSON.stringify(product, null, 2) 将对象转换为格式化的 JSON 字符串
+        // 这里的 null 表示不使用替换函数，2 表示每个级别缩进两个空格
+        console.log('Product JSON:', product);
+        // 将对象转换为 JSON 字符串并打印
+       
+        const productJSON = JSON.stringify(product, null, 2);
+        console.log(productJSON);
+        console.log(JSON.parse(productJSON))
+    </script>
+</body>
+</html>

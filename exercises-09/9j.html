@@ -2,68 +2,70 @@
 <html>
   <head></head>
   <body>
-    <p class="js-result"></p>
+    <!-- Create an element to display the calculation. -->
+    <p class="js-calculation"></p>
+
     <p>
       <button onclick="
-        updateCartQuantity('1');
+        updateCalculation('1');
       ">1</button>
 
       <button onclick="
-        updateCartQuantity('2');
+        updateCalculation('2');
       ">2</button>
 
       <button onclick="
-        updateCartQuantity('3');
+        updateCalculation('3');
       ">3</button>
 
       <button onclick="
-        updateCartQuantity('+');
+        updateCalculation(' + ');
       ">+</button>
     </p>
 
     <p>
       <button onclick="
-        updateCartQuantity('4');
+        updateCalculation('4');
       ">4</button>
 
       <button onclick="
-        updateCartQuantity('5');
+        updateCalculation('5');
       ">5</button>
 
       <button onclick="
-        updateCartQuantity('6');
+        updateCalculation('6');
       ">6</button>
 
       <button onclick="
-        updateCartQuantity('-');
+        updateCalculation(' - ');
       ">-</button>
     </p>
 
     <p>
       <button onclick="
-        updateCartQuantity('7');
+        updateCalculation('7');
       ">7</button>
 
       <button onclick="
-        updateCartQuantity('8');
+        updateCalculation('8');
       ">8</button>
 
       <button onclick="
-        updateCartQuantity('9');
+        updateCalculation('9');
       ">9</button>
 
       <button onclick="
-        updateCartQuantity('*');
+        updateCalculation(' * ');
       ">*</button>
     </p>
 
     <p>
       <button onclick="
-    updateCartQuantity('0');
+        updateCalculation('0');
       ">0</button>
 
       <button onclick="
-        updateCartQuantity('.');
+        updateCalculation('.');
       ">.</button>
 
       <button onclick="
@@ -72,39 +74,51 @@
         // it can potentially be given harmful code to run.
         // Only use eval() for learning purposes.
         calculation = eval(calculation);
-        console.log(calculation);
-        cleared = true;
-        result.innerHTML = `${calculation}`
+
+        // Display the calculation on the page
+        // instead of console.log
+        displayCalculation();
+
+        localStorage.setItem('calculation', calculation);
       ">=</button>
 
       <button onclick="
-        updateCartQuantity('/');
+        updateCalculation(' / ');
       ">/</button>
     </p>
 
     <p>
       <button onclick="
-        localStorage.removeItem('calculation');
         calculation = '';
-        result.innerHTML = `${calculation}`
+
+        // Display the calculation on the page
+        // instead of console.log
+        displayCalculation();
+
+        localStorage.setItem('calculation', calculation);
       ">Clear</button>
     </p>
 
-
     <script>
-        let cleared = false;
-        let calculation = localStorage.getItem('calculation' || '0');
-        let result = document.querySelector('.js-result');
-        result.innerHTML = `${calculation}`;
-        function updateCartQuantity(value){
-            if (cleared === true){
-                calculation = ''
-            }else{
-                calculation += value;
-            }
-            result.innerHTML = `${calculation}`;
-            localStorage.setItem('calculation',calculation);
-        }
+      let calculation = localStorage.getItem('calculation') || '';
+
+      // Display the calculation when the page first loads.
+      displayCalculation();
+
+      function updateCalculation(value) {
+        calculation += value;
+
+        // Display the calculation on the page
+        // instead of console.log
+        displayCalculation();
+
+        localStorage.setItem('calculation', calculation);
+      }
+
+      function displayCalculation() {
+        document.querySelector('.js-calculation')
+          .innerHTML = calculation;
+      }
     </script>
   </body>
 </html>
