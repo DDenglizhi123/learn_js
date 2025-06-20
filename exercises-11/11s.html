@@ -10,13 +10,13 @@
         const removeEgg = (foods) =>{
             let result = [];
             let countEgg = 0;
+            
             for (let i =0; i < foods.length; i++){
                 if(foods[i] === "egg"){
                     countEgg++;
                     if(countEgg <= 2){
                         continue;
                     }
-                    
                 }
                 result.push(foods[i]);
             }
