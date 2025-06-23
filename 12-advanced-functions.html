@@ -12,13 +12,14 @@
 
     <script>
         const btnElem= document.querySelector(".js-btn");
-        btnElem.addEventListener('click', ()=>{
-            console.log("click");
-        });
-        btnElem.removeEventListener('click', );
+        const eventListener = () => {
+            console.log('click');
+        }
+        btnElem.addEventListener('click', eventListener);
+        btnElem.removeEventListener('click', eventListener);
         
-        btnElem.addEventListener('click', ()=>{
-            console.log("click2");
+        btnElem.addEventListener('click', () =>{
+            console.log('click2')
         });
 
         /*

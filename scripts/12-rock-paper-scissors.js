@@ -22,11 +22,19 @@ let itervalID;
 //const autoPlay = () =>{
 
 //};
+document.querySelector('.js-rock-btn').addEventListener('click', ()=>{
+    play('rock');
+});
+document.querySelector('.js-paper-btn').addEventListener('click', ()=>{
+    play('paper');
+})
+document.querySelector('.js-scissors-btn').addEventListener('click', ()=>{
+    play('scissors');
+})
 
 function autoPlay() {
     if(!isAutoPlaying){
-        itervalID = setInterval(
-            () => {
+        itervalID = setInterval(() => {
                 const playerMove = pickComputerMove();
                 play(playerMove);
             }, 1000
