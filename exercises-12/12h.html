@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+</head>
+<body>
+    <button onclick="
+    numberOfMessage++;
+    ">Add</button>
+    <button onclick="
+    if (numberOfMessage === 0){
+        alert('0 remain')
+        return;
+    }else{
+        numberOfMessage--;
+    }
+    
+    ">Remove</button>
+    <script>
+        let numberOfMessage = 0;
+        setInterval(function(){
+        if(document.title === 'App' & numberOfMessage > 0){
+            document.title = `(${numberOfMessage}) New messages`;
+        }else{
+            document.title = 'App';
+        }
+       },1000);
+
+    </script>
+</body>
+</html>

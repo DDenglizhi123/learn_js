@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App</title>
+</head>
+<body>
+    <button onclick="hasNewMessage('add');
+    ">Add</button>
+    <button onclick="hasNewMessage('remove');  
+    ">Remove</button>
+    <script>
+        let numberOfMessage = 0;
+        function hasNewMessage(param){
+            if(param === 'add'){
+                numberOfMessage++;
+            }else if(param === 'remove'){
+                if(numberOfMessage === 0){
+                    alert(`Can't be lower than 0`)
+                    return;
+                }else{
+                    numberOfMessage--;
+                }
+            }
+        }
+        setInterval(function(){
+        if(document.title === 'App' & numberOfMessage > 0){
+            document.title = `(${numberOfMessage}) New messages`;
+        }else{
+            document.title = 'App';
+        }
+       },1000);
+
+    </script>
+</body>
+</html>
