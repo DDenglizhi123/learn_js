@@ -4,6 +4,17 @@ const score = JSON.parse(localStorage.getItem('score')) || {
     ties: 0
 };
 
+document.body.addEventListener('keydown',(event) => {
+    if (event.key === 'r'){
+        play('rock');
+    } else if (event.key === 'p'){
+        play('paper');
+    } else if (event.key === 's'){
+        play('scissors');
+
+    }
+})
+
 function pickComputerMove(){
     const randomNumber = Math.random(); // 生成一个0~1之间的随机数
     let computerChoice = '';

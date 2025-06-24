@@ -7,10 +7,10 @@
     <title>Advanced Function</title>
 </head>
 <body>
-
     <button onclick="" class="js-btn">Click</button>
 
     <script>
+        /*
         const btnElem= document.querySelector(".js-btn");
         const eventListener = () => {
             console.log('click');
@@ -118,6 +118,28 @@
         }
        }
     */
+    // 过滤数组: .fileter((valeu, index) => {};
+    // 此方法通过实际条件过滤掉不满足的元素, 以生成新的数组:
+    
+    // 举例: 用.filter()方法, 如果数组的元素满足 >=0, 返回 true(表示此元素存入新的数组), 如果 < 0, 则返回false(表示此元素不存入新数组)
+    console.log([1, -3, 5].filter((value, index)=>{
+        /*
+        if (value >= 0){
+            return true;
+        }else{
+            return false;
+        }
+        */
+        //以上代码可简写为:
+            return value >= 0;
+    }));
+    /*
+    console.log( [1, 1, 3].map((value, index)=>{
+        return value * 2;
+    }));
+    */
+    //以上代码可用箭头函数的简写方式写成:
+        console.log( [1, 1, 3].map(value => value * 2));
 
     </script>
 </body>
