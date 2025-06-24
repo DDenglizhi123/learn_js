@@ -6,21 +6,24 @@
     <title>App</title>
 </head>
 <body>
-    <button onclick="
-    numberOfMessage++;
-    ">Add</button>
-    <button onclick="
-    if (numberOfMessage === 0){
-        alert('0 remain')
-        return;
-    }else{
-        numberOfMessage--;
-    }
-    
-    ">Remove</button>
+    <button class="js-a-btn">Add</button>
+    <button class="js-r-btn">Remove</button>
     <script>
         let numberOfMessage = 0;
-        setInterval(function(){
+        document.querySelector('.js-a-btn').addEventListener('click',() => {
+            numberOfMessage++;
+        })
+
+        document.querySelector('.js-r-btn').addEventListener('click',() => {
+            if (numberOfMessage === 0){
+                alert('0 remain')
+                return;
+            }else{
+                numberOfMessage--;
+            }
+        })
+        
+        setInterval(() => {
         if(document.title === 'App' & numberOfMessage > 0){
             document.title = `(${numberOfMessage}) New messages`;
         }else{

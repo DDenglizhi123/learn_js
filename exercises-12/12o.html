@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>12o</title>
+</head>
+<body>
+  <script>
+    const removeEggs = (foods) =>{
+      let count = 0;
+      const newArray = foods.filter((value) =>{
+        if (value === 'egg' & count < 2){
+          count++;
+          console.log(count);
+          return false;
+        }else{
+          return true;
+        }
+      })
+      return newArray;
+    }
+
+    console.log(removeEggs(['egg', 'apple', 'egg', 'egg', 'ham']))
+  </script>
+</body>
+</html>

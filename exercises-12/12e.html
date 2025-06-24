@@ -6,10 +6,13 @@
     <title>12e</title>
 </head>
 <body>
-    <button class="js-addToCart-btn" onclick="add()">Add to cart</button>
+    <button class="js-addToCart-btn" >Add to cart</button>
     <p class="js-added-text"></p>
     <script>
-        function add(){
+        document.querySelector('.js-addToCart-btn').addEventListener('click',() => {
+            add();
+        })
+        const add = () => {
             const addToCart = document.querySelector('.js-addToCart-btn');
             const added = document.querySelector('.js-added-text');
             added.innerHTML = 'Added';
